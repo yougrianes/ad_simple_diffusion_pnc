@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
-from nuplan.database.nuplan_db.nuplan_db import NuPlanDB
+from nuplan.database.nuplan_db_orm.nuplandb import NuPlanDB
 from nuplan.planning.scenario_builder.nuplan_db.nuplan_scenario_builder import NuPlanScenarioBuilder
 
 
@@ -83,8 +83,8 @@ noise_level = 0.1
 batch_size = 16
 
 # 加载数据
-data_root = "/path/to/nuplan/data"  # 替换为实际的数据根目录
-version = "nuplan_v1.0-mini"  # 替换为实际的数据集版本
+data_root = "/home/li-ruiqin/nuplan/dataset"  # 替换为实际的数据根目录
+version = "nuplan_v1.1-mini"  # 替换为实际的数据集版本
 scenarios = load_nuplan_dataset(data_root, version)
 dataset = NuPlanTrajectoryDataset(scenarios)
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
